@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="style.css"/>
+    <title>G.T.E.S - Énergie, Télécom et Services</title>
+   
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const tab = button.getAttribute("data-tab");
+
+            // retirer "active" de tous les boutons et contenus
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // activer le bon onglet et contenu
+            button.classList.add("active");
+            document.getElementById(tab).classList.add("active");
+        });
+    });
+});
+</script>
+
+<body>
+    <!-- Header & Navigation -->
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>G.T.E.S</h1>
+                <p class="tagline">Énergie • Télécom • Services</p>
+            </div>
+            
+            <!-- Bouton hamburger pour mobile -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menu navigation -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#produits" class="nav-link">Produits</a></li>
+                <li><a href="#travaux" class="nav-link">Nos Travaux</a></li>
+                <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="#partenaires" class="nav-link">Partenaires</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h2>Votre Partenaire de Confiance</h2>
+            <p>Solutions innovantes en énergie, télécommunications et services</p>
+            <a href="#contact" class="btn-primary">Contactez-nous</a>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Énergie</h3>
+                    <p>Installation et maintenance de systèmes électriques, solutions d'énergies renouvelables, optimisation énergétique pour entreprises et particuliers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📡</div>
+                    <h3>Télécommunications</h3>
+                    <p>Déploiement de réseaux télécom, installation de fibres optiques, maintenance d'infrastructures de communication.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Services</h3>
+                    <p>Maintenance industrielle, assistance technique, conseil et expertise pour vos projets d'infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section id="produits" class="produits">
+        <div class="container">
+            <h2 class="section-title">Nos Produits</h2>
+            <div class="produits-grid">
+                <!-- Transformateur -->
+                <div class="produit-card">
+                    <div class="produit-header">
+                        <div class="produit-icon">🔌</div>
+                        <h3>Transformateur Électrique</h3>
+                        <p class="type">Haute Performance</p>
+                    </div>
+                    <div class="produit-body">
+                        <div class="caracteristiques">
+                            <h4>Caractéristiques Techniques</h4>
+                            <ul>
+                                <li>
+                                    <span class="label">Puissance:</span>
+                                    <span class="value">50 - 2500 kVA</span>
+                                </li>
+                                <li>
+                                    <span class="label">Tension primaire:</span>
+                                    <span class="value">10/15/20 kV</span>
+                                </li>
+                                <li>
+                                    <span class="label">Tension secondaire:</span>
+                                    <span class="value">230/400 V</span>
+                                </li>
+                                <li>
+                                    <span class="label">Fréquence:</span>
+                                    <span class="value">50 Hz</span>
+                                </li>
+                                <li>
+                                    <span class="label">Type de refroidissement:</span>
+                                    <span class="value">ONAN</span>
+                                </li>
+                                <li>
+                                    <span class="label">Classe d'isolation:</span>
+                                    <span class="value">F (155°C)</span>
+                                </li>
+                                <li>
+                                    <span class="label">Rendement:</span>
+                                    <span class="value">> 98%</span>
+                                </li>
+                                <li>
+                                    <span class="label">Normes:</span>
+                                    <span class="value">IEC 60076</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="produit-actions">
+                            <button class="btn-devis" onclick="openDevisModal('Transformateur Électrique')">📋 Faire un Devis</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groupe Électrogène -->
+                <div class="produit-card">
+                    <div class="produit-header">
+                        <div class="produit-icon">⚙️</div>
+                        <h3>Groupe Électrogène</h3>
+                        <p class="type">Solution d'Énergie de Secours</p>
+                    </div>
+                    <div class="produit-body">
+                        <div class="caracteristiques">
+                            <h4>Caractéristiques Techniques</h4>
+                            <ul>
+                                <li>
+                                    <span class="label">Puissance:</span>
+                                    <span class="value">20 - 2000 kVA</span>
+                                </li>
+                                <li>
+                                    <span class="label">Tension:</span>
+                                    <span class="value">230/400 V</span>
+                                </li>
+                                <li>
+                                    <span class="label">Fréquence:</span>
+                                    <span class="value">50 Hz</span>
+                                </li>
+                                <li>
+                                    <span class="label">Type de moteur:</span>
+                                    <span class="value">Diesel 4 temps</span>
+                                </li>
+                                <li>
+                                    <span class="label">Démarrage:</span>
+                                    <span class="value">Automatique/Manuel</span>
+                                </li>
+                                <li>
+                                    <span class="label">Autonomie:</span>
+                                    <span class="value">8 - 24 heures</span>
+                                </li>
+                                <li>
+                                    <span class="label">Niveau sonore:</span>
+                                    <span class="value">65 - 75 dB(A)</span>
+                                </li>
+                                <li>
+                                    <span class="label">Protection:</span>
+                                    <span class="value">IP23 / IP54</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="produit-actions">
+                            <button class="btn-devis" onclick="openDevisModal('Groupe Électrogène')">📋 Faire un Devis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Section À Propos -->
+<section id="apropos" class="apropos">
+    <div class="container">
+        <h2 class="section-title">À Propos de G.T.E.S</h2>
+        <div class="apropos-content">
+            <div class="apropos-text">
+                <h3>Notre Expertise à Votre Service</h3>
+                <p><strong>G.T.E.S</strong> est une <strong>filiale du groupe METIS</strong>, fondé en <strong>1999</strong>, acteur majeur de la <strong>Haute Technologie</strong> en Mauritanie.</p>
+                <p>Fort de l’expertise du groupe METIS, G.T.E.S accompagne les entreprises et institutions dans la conception, la mise en œuvre et la maintenance de <strong>solutions industrielles et technologiques</strong> de pointe dans les domaines suivants :</p>
+
+                <ul>
+                    <li>⚡ <strong>Énergie et Ingénierie Électrique</strong></li>
+                    <li>📡 <strong>Télécommunications et Réseaux</strong></li>
+                    <li>💻 <strong>Systèmes d’Information et Informatique</strong></li>
+                </ul>
+                <div class="stats">
+                    <div class="stat">
+                        <h4>150+</h4>
+                        <p>Projets réalisés</p>
+                    </div>
+                    <div class="stat">
+                        <h4>25+</h4>
+                        <p>Années d'expérience</p>
+                    </div>
+                    <div class="stat">
+                        <h4>98%</h4>
+                        <p>Clients satisfaits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Travaux Réalisés -->
+<section id="travaux" class="travaux">
+    <div class="container">
+        <h2 class="section-title">Nos Travaux Réalisés</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">
+            Des projets d'envergure avec nos partenaires internationaux
+        </p>
+        
+        <div class="travaux-tabs">
+            <button class="tab-btn active" data-tab="telecom">Télécommunications</button>
+            <button class="tab-btn energie" data-tab="energie">Énergie</button> 
+        </div>
+        
+        <!-- Onglet Télécommunications -->
+        <div class="tab-content active" id="telecom">
+            <div class="projet-hero">
+                <div class="projet-hero-content">
+                    <h3>Projets Télécommunications</h3>
+                    <p>Déploiement d'infrastructures télécom de grande envergure</p>
+                </div>
+            </div>
+            
+            <div class="projets-grid">
+                <!-- Projet SENTEL (TIGO) -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <div class="projet-icon">📡</div>
+                        <h4>SENTEL (TIGO) - Sénégal</h4>
+                        <span class="projet-badge">2007-2011</span>
+                    </div>
+                    <div class="projet-body">
+                        <div class="projet-stat">
+                            <span class="stat-number">97</span>
+                            <span class="stat-label">Sites installés</span>
+                        </div>
+                        <ul class="projet-details">
+                            <li><strong>Phase 7B (2007-2008):</strong> Pylônes autoportants 18m à 60m</li>
+                            <li><strong>Phase 11A (2011):</strong> Installations ROOFTOP et GREENFIELD</li>
+                            <li><strong>Équipements:</strong> Shelters, TGBT, Climatiseurs, Groupes électrogènes</li>
+                        </ul>
+                        <p class="projet-partenaires">
+                            <strong>Partenaires:</strong> CGTECH, CDMA Services
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet SONATEL -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <div class="projet-icon">🌍</div>
+                        <h4>SONATEL - Projet Rural</h4>
+                        <span class="projet-badge">2003-2005</span>
+                    </div>
+                    <div class="projet-body">
+                        <div class="projet-stat">
+                            <span class="stat-number">450+</span>
+                            <span class="stat-label">Sites déployés</span>
+                        </div>
+                        <ul class="projet-details">
+                            <li><strong>Zones couvertes:</strong> 17 réseaux ruraux</li>
+                            <li><strong>Équipements:</strong> SR500s, HC, SLIM 10, SLIM 34, SLIM RC</li>
+                            <li><strong>Technologies:</strong> WBS et RR sa</li>
+                        </ul>
+                        <div class="projet-zones">
+                            <span class="zone-badge">Bakel</span>
+                            <span class="zone-badge">Kedougou</span>
+                            <span class="zone-badge">Kolda</span>
+                            <span class="zone-badge">Tambacounda</span>
+                            <span class="zone-badge">+13 zones</span>
+                        </div>
+                        <p class="projet-partenaires">
+                            <strong>Partenaires:</strong> CGTECH, CDMA Services
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Onglet Énergie -->
+        <div class="tab-content" id="energie">
+            <div class="projet-hero energie">
+                <div class="projet-hero-content">
+                    <h3>Projets Énergie</h3>
+                    <p>Solutions innovantes en gestion thermique et économie d'énergie</p>
+                </div>
+            </div>
+            
+            <div class="projets-grid">
+                <!-- Projet TIGO Énergie -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <div class="projet-icon">🔋</div>
+                        <h4>TIGO - Système de Gestion Thermique</h4>
+                        <span class="projet-badge">Dakar & Régions</span>
+                    </div>
+                    <div class="projet-body">
+                        <div class="projet-stat">
+                            <span class="stat-number">20</span>
+                            <span class="stat-label">Sites équipés</span>
+                        </div>
+                        <ul class="projet-details">
+                            <li>Étude et conception de systèmes de gestion de température</li>
+                            <li>Solutions d'économie d'énergie innovantes</li>
+                            <li>Fourniture et installation d'extracteurs d'air</li>
+                            <li>Installation de toits sahéliens adaptés au climat</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Projet ORANGE MOBILE -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <div class="projet-icon">🌡️</div>
+                        <h4>ORANGE MOBILE - Climatisation</h4>
+                        <span class="projet-badge">Dakar</span>
+                    </div>
+                    <div class="projet-body">
+                        <div class="projet-stat">
+                            <span class="stat-number">50</span>
+                            <span class="stat-label">Sites à Dakar</span>
+                        </div>
+                        <ul class="projet-details">
+                            <li>Étude et conception de systèmes thermiques</li>
+                            <li>Solutions d'économie d'énergie sur mesure</li>
+                            <li>Maintenance et optimisation énergétique</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Projet ALCATEL -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <div class="projet-icon">⚡</div>
+                        <h4>ALCATEL - Infrastructure BTS</h4>
+                        <span class="projet-badge">ORANGE MOBILE</span>
+                    </div>
+                    <div class="projet-body">
+                        <ul class="projet-details">
+                            <li>Étude et fourniture de TGBT pour shelters</li>
+                            <li>Installation dans les sites BTS</li>
+                            <li>Solutions électriques complètes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section Partenaires -->
+<section id="partenaires" class="partenaires">
+    <div class="container">
+        <h2 class="section-title">Nos Partenaires</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">
+            Nous collaborons avec les meilleures marques du secteur
+        </p>
+    </div>
+
+    <div class="partenaires-slider">
+        <div class="partenaires-track">
+            <div class="partenaire-logo"><img src="alcatel.png" alt="Alcatel"></div>
+            <div class="partenaire-logo"><img src="AXIS.png" alt="Axis"></div>
+            <div class="partenaire-logo"><img src="D-Link-Logo.png" alt="D-Link"></div>
+            <div class="partenaire-logo"><img src="Huawei-Logo.png" alt="Huawei"></div>
+            <div class="partenaire-logo"><img src="Logo-Alvarion.jpg" alt="Alvarion"></div>
+            <div class="partenaire-logo"><img src="Mauritel-MR-min.jpg" alt="Mauritel"></div>
+            <div class="partenaire-logo"><img src="Snim_logo.svg.png" alt="SNIM"></div>
+            <div class="partenaire-logo"><img src="ZTE_logo.svg.png" alt="ZTE"></div>
+            <div class="partenaire-logo"><img src="normrock.jpeg" alt="Normrock"></div>
+
+            <!-- Copie des mêmes logos pour assurer la boucle fluide -->
+            <div class="partenaire-logo"><img src="alcatel.png" alt="Alcatel"></div>
+            <div class="partenaire-logo"><img src="AXIS.png" alt="Axis"></div>
+            <div class="partenaire-logo"><img src="D-Link-Logo.png" alt="D-Link"></div>
+            <div class="partenaire-logo"><img src="Huawei-Logo.png" alt="Huawei"></div>
+            <div class="partenaire-logo"><img src="Logo-Alvarion.jpg" alt="Alvarion"></div>
+            <div class="partenaire-logo"><img src="Mauritel-MR-min.jpg" alt="Mauritel"></div>
+            <div class="partenaire-logo"><img src="snim logo.jpg" alt="SNIM"></div>
+            <div class="partenaire-logo"><img src="ZTE_logo.svg.png" alt="ZTE"></div>
+            <div class="partenaire-logo"><img src="normrock.jpeg" alt="Normrock"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section Contact -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Contactez-Nous</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Informations de Contact</h3>
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>41, Avenue Cheikh Zayed BP 3897 <br>Nouakchott, Mauritanie</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+33 6 99 57 44 26</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">✉️</span>
+                    <div>
+                        <h4>Email</h4>
+                        <p>gtesmr@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">🕐</span>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Lundi - Vendredi : 8h00 - 18h00<br>Samedi : 9h00 - 12h00</p>
+                    </div>
+                </div>
+                
+                <div class="contact-options">
+                    <a href="https://wa.me/33699574426" class="contact-option whatsapp" target="_blank">
+                        💬 WhatsApp
+                    </a>
+                    <a href="mailto:gtesmr@gmail.com" class="contact-option email">
+                        ✉️ Email
+                    </a>
+                </div>
+            </div>
+            <form id="contactForm" action="https://formspree.io/f/mjkppqql" method="POST">
+    <div class="form-group">
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone">
+    </div>
+    <div class="form-group">
+        <label for="sujet">Sujet</label>
+        <select id="sujet" name="sujet">
+            <option value="energie">Énergie</option>
+            <option value="telecom">Télécommunications</option>
+            <option value="services">Services</option>
+            <option value="produits">Produits</option>
+            <option value="autre">Autre</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn-primary">Envoyer</button>
+</form>
+
+<div id="confirmationMessage" style="display: none; text-align: center; margin-top: 2rem; padding: 1.5rem; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 10px; color: #155724;">
+    <h4>✅ Message envoyé !</h4>
+    <p>Nous vous contacterons dans les plus brefs délais.</p>
+</div>
+
+    
+</section>
+
+
+<script>
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Envoi des données à Formspree
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        // Masquer le formulaire et afficher le message de succès
+        form.style.display = 'none';
+        document.getElementById('confirmationMessage').style.display = 'block';
+
+        // Réinitialiser après 3 secondes
+        setTimeout(() => {
+            form.reset();
+            form.style.display = 'block';
+            document.getElementById('confirmationMessage').style.display = 'none';
+        }, 3000);
+    } else {
+        alert("❌ Une erreur est survenue. Merci de réessayer plus tard.");
+    }
+});
+</script>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>G.T.E.S</h3>
+                <p>Votre partenaire de confiance pour tous vos projets en énergie, télécommunications et services.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#travaux">Travaux</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Nos Services</h4>
+                <ul>
+                    <li>Énergie</li>
+                    <li>Télécommunications</li>
+                    <li>Services Techniques</li>
+                    <li>Transformateurs</li>
+                    <li>Groupes Électrogènes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 G.T.E.S. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal Devis -->
+<div id="devisModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Demander un Devis</h3>
+            <button class="close-modal" onclick="closeDevisModal()">&times;</button>
+        </div>
+        
+        <!-- Choix de la méthode -->
+        <div id="devisChoice">
+            <p style="color: #666; margin-bottom: 1.5rem;">Choisissez votre méthode de contact préférée :</p>
+            <div class="devis-options">
+                <div class="devis-option" onclick="selectDevisMethod('whatsapp')">
+                    <div class="devis-option-icon">💬</div>
+                    <div class="devis-option-content">
+                        <h4>WhatsApp</h4>
+                        <p>Discussion instantanée pour un devis rapide</p>
+                    </div>
+                </div>
+                <div class="devis-option" onclick="selectDevisMethod('form')">
+                    <div class="devis-option-icon">📋</div>
+                    <div class="devis-option-content">
+                        <h4>Formulaire</h4>
+                        <p>Remplissez un formulaire détaillé</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulaire de devis -->
+        <div id="devisForm" style="display: none;">
+            <form id="formDevis" onsubmit="submitDevis(event)">
+                <input type="hidden" id="produitDevis" name="produit">
+                
+                <div class="form-group">
+                    <label for="nomDevis">Nom complet *</label>
+                    <input type="text" id="nomDevis" name="nom" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailDevis">Email *</label>
+                    <input type="email" id="emailDevis" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telDevis">Téléphone *</label>
+                    <input type="tel" id="telDevis" name="telephone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="entrepriseDevis">Entreprise</label>
+                    <input type="text" id="entrepriseDevis" name="entreprise">
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantiteDevis">Quantité souhaitée</label>
+                    <input type="number" id="quantiteDevis" name="quantite" min="1" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="messageDevis">Message / Détails supplémentaires</label>
+                    <textarea id="messageDevis" name="message" rows="4" placeholder="Décrivez vos besoins spécifiques..."></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn-secondary" onclick="backToDevisChoice()">← Retour</button>
+                    <button type="submit" class="btn-primary" style="flex: 1;">Envoyer la demande</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Message de confirmation -->
+        <div id="devisConfirmation" style="display: none; text-align: center; padding: 2rem 0;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h3 style="color: #28a745; margin-bottom: 1rem;">Demande envoyée !</h3>
+            <p style="color: #666; margin-bottom: 2rem;">Nous vous contacterons dans les plus brefs délais.</p>
+            <button class="btn-primary" onclick="closeDevisModal()">Fermer</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentProduct = '';
+
+    // Fonction pour ouvrir le modal de devis
+    function openDevisModal(productName) {
+        currentProduct = productName;
+        document.getElementById('produitDevis').value = productName;
+        
+        const modal = document.getElementById('devisModal');
+        modal.classList.add('active');
+        
+        // Réinitialiser le modal
+        document.getElementById('devisChoice').style.display = 'block';
+        document.getElementById('devisForm').style.display = 'none';
+        document.getElementById('devisConfirmation').style.display = 'none';
+        
+        // Réinitialiser le formulaire
+        document.getElementById('formDevis').reset();
+        document.getElementById('produitDevis').value = productName;
+    }
+
+    // Fonction pour sélectionner la méthode de devis
+    function selectDevisMethod(method) {
+        if (method === 'whatsapp') {
+            // Ouvrir WhatsApp
+            const whatsappMessage = `Bonjour, je souhaite obtenir un devis pour : ${currentProduct}`;
+            window.open(`https://wa.me/33699574426?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            closeDevisModal();
+        } else if (method === 'form') {
+            // Afficher le formulaire
+            document.getElementById('devisChoice').style.display = 'none';
+            document.getElementById('devisForm').style.display = 'block';
+        }
+    }
+
+    // Fonction pour revenir au choix
+    function backToDevisChoice() {
+        document.getElementById('devisForm').style.display = 'none';
+        document.getElementById('devisChoice').style.display = 'block';
+    }
+
+    // Fonction pour soumettre le devis
+    function submitDevis(event) {
+        event.preventDefault();
+        
+        // Récupérer les données du formulaire
+        const formData = new FormData(event.target);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+        
+        // Construire l'email
+        const emailSubject = `Demande de devis - ${data.produit}`;
+        const emailBody = `Nouvelle demande de devis
+        
+Produit : ${data.produit}
+
+INFORMATIONS CLIENT :
+Nom : ${data.nom}
+Email : ${data.email}
+Téléphone : ${data.telephone}
+${data.entreprise ? `Entreprise : ${data.entreprise}` : ''}
+
+DÉTAILS DE LA DEMANDE :
+Quantité : ${data.quantite}
+
+Message :
+${data.message || 'Aucun message supplémentaire'}
+
+---
+Envoyé depuis le site G.T.E.S`;
+
+        // Ouvrir le client mail
+        window.location.href = `mailto:gtesmr@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Afficher la confirmation
+        document.getElementById('devisForm').style.display = 'none';
+        document.getElementById('devisConfirmation').style.display = 'block';
+    }
+
+    // Fonction pour fermer le modal
+    function closeDevisModal() {
+        const modal = document.getElementById('devisModal');
+        modal.classList.remove('active');
+    }
+
+    // Fermer le modal en cliquant à l'extérieur
+    window.onclick = function(event) {
+        const modal = document.getElementById('devisModal');
+        if (event.target == modal) {
+            closeDevisModal();
+        }
+    }
+
+    // Smooth scroll pour les liens de navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+</script>
+
