@@ -51,6 +51,7 @@ header {
     margin-top: -5px;
 }
 
+/* Menu principal (desktop) */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -89,17 +90,65 @@ header {
     transition: all 0.3s ease;
 }
 
-.menu-toggle.active span:nth-child(1) {
+/* Animation hamburger */
+.menu-toggle.open span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
 }
 
-.menu-toggle.active span:nth-child(2) {
+.menu-toggle.open span:nth-child(2) {
     opacity: 0;
 }
 
-.menu-toggle.active span:nth-child(3) {
+.menu-toggle.open span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
+
+/* ----------------------------
+   VERSION MOBILE
+----------------------------- */
+@media (max-width: 768px) {
+    /* Cacher le menu principal */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px; /* ajuster selon la hauteur du header */
+        right: 10px;
+        flex-direction: column;
+        background: #1e3c72;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        width: 220px;
+        padding: 1rem;
+        z-index: 999;
+    }
+
+    /* Afficher le menu quand actif */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Liens du menu mobile */
+    .nav-menu a {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        color: #fff;
+        text-align: center;
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a:hover {
+        color: #ffd700;
+    }
+
+    /* Afficher le bouton hamburger */
+    .menu-toggle {
+        display: flex;
+    }
+}
+
 
 /* Section Hero */
 .hero {
